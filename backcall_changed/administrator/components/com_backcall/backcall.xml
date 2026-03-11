@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="4.0" method="upgrade">
+    <name>com_backcall</name>
+    <creationDate>2022-10-07</creationDate>
+    <copyright>2022 Владимир</copyright>
+    <license>GNU General Public License версии 2 или более поздней; Смотрите LICENSE.txt</license>
+    <author>Владимир</author>
+    <authorEmail>mail@sitogon.ru</authorEmail>
+    <authorUrl>https://sitogon.ru</authorUrl>
+    <version>1.0.5</version>
+    <namespace path="src">Backcall\Component\Backcall</namespace>
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <scriptfile>script.php</scriptfile>
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+        </schemas>
+    </update>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <files folder="site">
+        <folder>src</folder>
+        <folder>forms</folder>
+        <folder>tmpl</folder>
+    </files>
+    <media destination="com_backcall" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+    <languages folder="site/languages">
+        <language tag="ru-RU">ru-RU/com_backcall.ini</language>
+    </languages>
+    <administration>
+        <menu>COM_BACKCALL</menu>
+        <submenu>
+            <menu link="option=com_backcall&amp;view=calls" view="calls" alt="Backcall/Calls">COM_BACKCALL_TITLE_CALLS</menu>
+            <menu link="option=com_backcall&amp;view=messages" view="calls" alt="Backcall/Messages">COM_BACKCALL_TITLE_MESSAGES</menu>
+            <menu link="option=com_backcall&amp;view=maxbots" view="maxbots" alt="Backcall/Maxbots">COM_BACKCALL_MAX_BOTS</menu>
+            <menu link="option=com_backcall&amp;view=telegrams" view="telegrams" alt="Backcall/Telegrams">COM_BACKCALL_TELEGRAM_BOTS</menu>
+        </submenu>
+        <files folder="administrator">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>forms</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>presets</folder>
+            <folder>sql</folder>
+            <folder>assets</folder>
+        </files>
+        <languages folder="administrator/languages">
+            <language tag="ru-RU">ru-RU/com_backcall.ini</language>
+            <language tag="ru-RU">ru-RU/com_backcall.sys.ini</language>
+        </languages>
+    </administration>
+    <config>
+        <fields name="params">
+            <fieldset name="component">
+                <field name="save_history" default="0"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
+
