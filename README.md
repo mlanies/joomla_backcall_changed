@@ -36,6 +36,20 @@
 - `administrator/language/ru-RU/com_backcall.sys.ini` -- системный языковой файл
 - `language/ru-RU/mod_backcall.ini` -- языковой файл модуля
 
+## Вызов модального окна из произвольного места
+
+Кнопка модуля по умолчанию скрыта (`display: none`). Чтобы открыть окно обратного звонка из любого места на сайте, создайте модуль "Произвольный HTML-код" и вставьте в него:
+
+```html
+<div class="footer-contacts__btn">
+  <a href="#" class="btn btn-primary" onclick="open_act_popup165(); return false;">
+    <span>Записаться на консультацию</span>
+  </a>
+</div>
+```
+
+Где `165` в `open_act_popup165()` -- это ID модуля Backcall. Узнать ID можно в админке: Расширения -> Модули -> открыть модуль Backcall, ID будет в URL (`id=165`).
+
 ## Автор оригинала
 
 Vladimir Egorov, [sitogon.ru](https://sitogon.ru/)
