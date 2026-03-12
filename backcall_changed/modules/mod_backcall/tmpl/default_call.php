@@ -202,7 +202,16 @@ use Joomla\CMS\Uri\Uri;
                     <?php if ($params->get('phone_mask') && $params->get('phone_mask') != '') { ?>
                         <script>
                             jQuery(function ($) {
-                                jQuery("#<?php echo $phone_input ?>").mask("<?php echo $params->get('phone_mask') ?>");
+                                var $phone = jQuery("#<?php echo $phone_input ?>");
+                                $phone.mask("<?php echo $params->get('phone_mask') ?>");
+                                $phone.on("focus click", function() {
+                                    var val = this.value;
+                                    var pos = val.indexOf("_");
+                                    if (pos === -1) pos = val.length;
+                                    if (this.setSelectionRange) {
+                                        this.setSelectionRange(pos, pos);
+                                    }
+                                });
                             });
                         </script>
                     <?php } ?>
