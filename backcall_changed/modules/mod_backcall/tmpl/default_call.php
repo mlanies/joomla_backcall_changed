@@ -198,7 +198,8 @@ use Joomla\CMS\Uri\Uri;
     <div class="iziModal-wrap" style="height: 593px;">
         <div class="iziModal-content" style="padding: 20px;">
             <div class="popup_act_content">
-                <form method="post" action="<?php echo Uri::root() ?>index.php?option=com_backcall&task=call.send" id="<?php echo $formbackcall ?>" name="<?php echo $formbackcall ?>">
+                <form method="post" action="<?php echo Uri::root() ?>index.php?option=com_backcall&task=call.send" id="<?php echo $formbackcall ?>" name="<?php echo $formbackcall ?>"
+                      onsubmit="try{ym(105353389,'reachGoal','backcall_submit')}catch(e){}">
                     <?php if ($params->get('phone_mask') && $params->get('phone_mask') != '') { ?>
                         <script>
                             jQuery(function ($) {
